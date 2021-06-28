@@ -15,7 +15,7 @@ public class BasicLibrary {
             {55, 54, 60, 53, 59, 57, 61},
             {65, 56, 55, 52, 55, 62, 57}
             };
-        System.out.println(average(weeklyMonthTemperatures));
+        System.out.println(Arrays.toString(average(weeklyMonthTemperatures)));
     }
 
     public static int[] roll(int n){
@@ -53,7 +53,7 @@ public class BasicLibrary {
         	int avg = sum / arr.length;
         	return avg;
     	}
-	public static int average(int[][] arr){
+	public static int[] average(int[][] arr){
         int[] averagesArr = new int[arr.length];
         int i = 0;
         for(int j=0; j<arr.length;j++){
@@ -65,8 +65,13 @@ public class BasicLibrary {
              i++;
         }
         int res = averagesArr[0];
-        for (int y = 1; y < averagesArr.length; y++)
+	int[] lowestArr = arr[0];
+        for (int y = 1; y < averagesArr.length; y++){
             res = Math.min(res, averagesArr[y]);
-        return res;
+		if(res == averagesArr[y]){
+			lowestArr = arr[y];
+		}
+	}
+        return lowestArr;
     	}
 }
