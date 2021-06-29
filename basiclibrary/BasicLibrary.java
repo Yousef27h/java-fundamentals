@@ -45,13 +45,12 @@ public class BasicLibrary {
 		System.out.println(result);
     	}
 
-	public static int average(int[] arr){
-        	int sum = 0;
+	public static double average(int[] arr){
+        	double sum = 0;
         	for (int el : arr){
-            		sum = sum +el;
+            		sum += el;
         	}
-        	int avg = sum / arr.length;
-        	return avg;
+        	return sum / arr.length;
     	}
 	public static int[] average(int[][] arr){
         int[] averagesArr = new int[arr.length];
