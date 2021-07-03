@@ -28,7 +28,7 @@ class Linter  {
 	tally(votes);
     }
 	public static void getTemp(int[][] arr){
-	HashSet<Integer> weatherData=new HashSet();
+	HashSet<Integer> weatherData=new HashSet<Integer>();
         for(int[] el:arr){
             for (int elem: el){
                 weatherData.add(elem);
@@ -48,9 +48,9 @@ class Linter  {
 		ReadFile("./resources/gates.js");
 	}
 
-	public static void tally(List arrList){
+	public static void tally(List <String> arrList){
 		// create an array with length of number of unique values
-        	HashSet<String> namesHash = new HashSet(arrList);
+        	HashSet<String> namesHash = new HashSet<String>(arrList);
         	int i = 0;
         	int[] count = new int[namesHash.size()];
         	// count occurance of each unique value and add it to the array
@@ -76,8 +76,8 @@ class Linter  {
             		currentIndex++;
         	}
 		}
-		public static void ReadFile(String path) {
-			  try {
+	public static void ReadFile(String path) {
+			try {
 				File myObj = new File(path);
 				Scanner myReader = new Scanner(myObj);
 				int i=1;
@@ -96,5 +96,5 @@ class Linter  {
 				System.out.println("An error occurred.");
 				e.printStackTrace();
 			  }
-		  }
+	}
 	}
