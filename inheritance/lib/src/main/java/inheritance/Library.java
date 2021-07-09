@@ -8,8 +8,8 @@ public class Library {
 
         return true;
     }
-    public void restaurantRating(){
-        Restaurant myRest = new Restaurant("Yousef",3,3);
-        myRest.toString();
-    }
+//    public void restaurantRating(){
+//        Restaurant myRest = new Restaurant("Yousef",3,3);
+//        myRest.toString();
+//    }
 }

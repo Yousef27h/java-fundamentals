@@ -4,34 +4,89 @@
 package inheritance;
 
 import org.junit.jupiter.api.Test;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class LibraryTest {
-    @Test void someLibraryMethodReturnsTrue() {
-        Library classUnderTest = new Library();
-        assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
+// Class Restaurant constructor test
+class RestaurantTest {
+    @Test
+    void restaurantConstructorTest() {
+        Restaurant restTest = new Restaurant("PizzaHut", 3);
+        assertEquals(restTest.getName(), "PizzaHut");
     }
 
-}
-class RestaurantTest{
-    @Test void restaurantConstructorTest() {
-        Restaurant restTest = new Restaurant("Yousef", 3,3);
-        assertEquals(restTest.getName(), "Yousef");
-    }
-    @Test void restaurantRatingReturnsString() {
-        Restaurant restTest = new Restaurant("Yousef Salem", 3,3);
-        assertEquals(restTest.toString(), "This restaurant's name is Yousef, it has a 3 star rating, and it's prices $$$");
+    @Test
+    void restaurantRatingReturnsString() {
+        Restaurant restTest = new Restaurant("BurgerHut", 3);
+        assertEquals(restTest.getPrice(), 3);
     }
 }
 
+// Class Review constructor test
 class ReviewTest {
-    @Test void reviewConstructorTest() {
-        Review restTest = new Review("A review", "Yousef Salem",3);
+    @Test
+    void reviewConstructorTest() {
+        Review restTest = new Review("A review", "Yousef Salem", 3);
         assertEquals(restTest.getAuthor(), "Yousef Salem");
     }
+
     @Test
     void reviewReturnsString() {
         Review restTest = new Review("I love it!!!", "Yousef Salem", 4);
         assertEquals(restTest.toString(), "Author's name is Yousef Salem, He has reviewed this restaurant with  4 star rating, and he said \" I love it!!! \"");
+    }
+}
+
+// add review to restaurant test
+class addReviewTest {
+    @Test
+    void addTest() {
+        Restaurant revTest = new Restaurant("Popeyes", 2);
+        revTest.addReview("Bad", "Ahmad", 3);
+        revTest.addReview("a", "Ahma", 5);
+        revTest.addReview("g", "Ahmad", 4);
+        assertEquals(revTest.getRating(), (4));
+    }
+}
+
+// test shop constructor
+class shopTest {
+    @Test
+    void shopToStringTest() {
+        Shop shopTest = new Shop("PizzaHut", "Bad", 3);
+        assertEquals(shopTest.toStringMethod(), "Author's name is Yousef, He review this place with (**) star rating, and he said \" Bad \"");
+    }
+}
+
+// add review to shop test
+class addReviewShopTest{
+    @Test
+    void addTest() {
+        Shop revTest = new Shop("Popeyes","Yosuef", 2);
+        revTest.addReview("Bad", "Ahmad", 3);
+        revTest.addReview("a", "Ahma", 5);
+        revTest.addReview("g", "Ahmad", 4);
+        assertEquals(revTest.getShopRating(), (4));
+    }
+}
+class addReviewTheaterTest{
+    @Test
+    void addTest() {
+        ArrayList movies = new ArrayList();
+        movies.add("IronMan");
+        movies.add("SpiderMan");
+        Theater revTest = new Theater("Cinema",movies);
+        revTest.addReview("Bad", "Ahmad", 3);
+        revTest.addReview("a", "Ahma", 5);
+        revTest.addReview("g", "Ahmad", 4);
+        revTest.addMovie("Hulk");
+        ArrayList<String> y = new ArrayList<>();
+        y.add("IronMan");
+        y.add("SpiderMan");
+        y.add("Hulk");
+        assertEquals(revTest.getMovies(), y);
     }
 }

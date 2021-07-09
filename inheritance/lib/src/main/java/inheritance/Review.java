@@ -1,18 +1,22 @@
 package inheritance;
 
-public class Review extends Restaurant{
+public class Review implements ToString {
     private String body;
     private String author;
-    private int starNum;
+    private String ratingInput;
 
-    public Review(String body, String author, int starNum) {
-        super(author, starNum);
-        if (starNum > 5 || starNum < 0) {
+
+    public Review(String body, String author, int ratingInput) {
+        if (ratingInput > 5 || ratingInput < 0) {
             throw new IllegalArgumentException("Rating should in the range of [0-5].");
         }
         this.body = body;
         this.author = author;
-        this.starNum = starNum;
+        this.ratingInput = "*".repeat(ratingInput);
+    }
+
+    public Review() {
+
     }
 
     public String getBody() {
@@ -23,11 +27,13 @@ public class Review extends Restaurant{
         return author;
     }
 
-    public int getStarNum() {
-        return starNum;
+    public String getStarNum() {
+        return ratingInput;
     }
 
-    public String toString(){
-        return "Author's name is "+ author +", He has reviewed this restaurant with  "+starNum+ " star rating, and he said \" " +body+" \"";
+    @Override
+    public String toStringMethod() {
+        return "Author's name is " + author + ", He review this place with (" + ratingInput + ") star rating, and he said \" " + body + " \"";
     }
+
 }
