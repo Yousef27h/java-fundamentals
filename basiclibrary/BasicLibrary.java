@@ -8,14 +8,14 @@ public class BasicLibrary {
         System.out.println(Arrays.toString(testArr));
         containsDuplicates(testArr);
 	int[] arr1 = {1, 2, 3};
-	System.out.println(average(arr1));
+	System.out.println(average1(arr1));
 	int[][] weeklyMonthTemperatures = {
             {66, 64, 58, 65, 71, 57, 60},
             {57, 65, 65, 70, 72, 65, 51},
             {55, 54, 60, 53, 59, 57, 61},
             {65, 56, 55, 52, 55, 62, 57}
             };
-        System.out.println(Arrays.toString(average(weeklyMonthTemperatures)));
+        System.out.println(Arrays.toString(average2(weeklyMonthTemperatures)));
     }
 
     public static int[] roll(int n){
@@ -45,7 +45,7 @@ public class BasicLibrary {
 		System.out.println(result);
     	}
 
-	public static int average(int[] arr){
+	public static int average1(int[] arr){
         	int sum = 0;
         	for (int el : arr){
             		sum = sum +el;
@@ -53,19 +53,19 @@ public class BasicLibrary {
         	int avg = sum / arr.length;
         	return avg;
     	}
-	public static int[] average(int[][] arr){
-        int[] averagesArr = new int[arr.length];
+	public static double[] average2(double[][] arr){
+        double[] averagesArr = new double[arr.length];
         int i = 0;
         for(int j=0; j<arr.length;j++){
-            int sum = 0;
-            for (int elem : arr[i]){
+            double sum = 0;
+            for (double elem : arr[i]){
                 sum = sum +elem;
             }
              averagesArr[i] = sum / arr[i].length;
              i++;
         }
-        int res = averagesArr[0];
-	int[] lowestArr = arr[0];
+        double res = averagesArr[0];
+	double[] lowestArr = arr[0];
         for (int y = 1; y < averagesArr.length; y++){
             res = Math.min(res, averagesArr[y]);
 		if(res == averagesArr[y]){

@@ -21,3 +21,13 @@ methods :
 - tally : will count the votes and prints out the name of the winner.
 
 - ReadFile : will take file path as input and will parse it and return the number of lines which doesn't include semicolon, if keyword, else keyword, curly braces .
+
+# Lab 06 & 07
+
+methods:
+
+- addReview : adds a new review to the facility by adding name of writer, body of the review, and rating. then it apdates the overall rating for the facility.
+
+- toStringMethod : Put author's name, rating input, and review's body in a readable form.
+
+![inheritance](./resources/inheritanceLab.JPG)
